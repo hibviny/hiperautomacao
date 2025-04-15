@@ -3,24 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Hiperautomação</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --hover-color: #3b82f6;
         }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .banner {
+            width: 100%;
+            height: 200px;
+            background-image: url('https://yt3.googleusercontent.com/Nj870OEYDE-76ATyvKHHCTHiUljcnggy4MqjG7K8objwzKI46KE0w5cik0f0krDjH4dgHWj3Rg=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj');
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 1rem;
+            border-radius: 0 0 16px 16px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            margin: 0 1rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
         h1 {
-            color: #333;
-            font-size: 3em;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .link-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .link-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            background: var(--background-color);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            gap: 1rem;
+        }
+
+        .whatsapp-icon, .youtube-icon {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .link-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .warning {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #dc2626;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            padding: 0.75rem;
+            background: #fee2e2;
+            border-radius: 8px;
+            border-left: 4px solid #dc2626;
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                height: 150px;
+            }
+            
+            .container {
+                padding: 1.5rem;
+                margin: -30px 1rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .link-title {
+                font-size: 1.2rem;
+            }
+
+            .link-item {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .whatsapp-icon, .youtube-icon {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner {
+                height: 120px;
+            }
+            
+            .container {
+                padding: 1.25rem;
+                margin: -20px 1rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .link-title {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            .link-item {
+                padding: 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .whatsapp-icon, .youtube-icon {
+                width: 24px;
+                height: 24px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <div class="banner"></div>
+    <div class="container">
+        <div class="link-section">
+            <h2 class="link-title">YouTube</h2>
+            <a href="https://youtube.com/@hiperautomacao" class="link-item" target="_blank">
+                <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube" class="youtube-icon" style="width: 32px; height: 32px;">
+                Canal Hiperautomação no YouTube
+            </a>
+        </div>
+
+        <div class="link-section">
+            <h2 class="link-title">Grupos WhatsApp</h2>
+            <a href="https://chat.whatsapp.com/FdEL4y0xabV4qVisMpg3KR" class="link-item" target="_blank">
+                <img src="https://pps.whatsapp.net/v/t61.24694-24/487696402_665229229564566_4271525320536613569_n.jpg?ccb=11-4&oh=01_Q5Aa1QHpGehKfc6pSTTH4oQSdvt6dwza1ipPoSZwEvuVz94fGA&oe=680ABEE3&_nc_sid=5e03e0&_nc_cat=111" alt="WhatsApp" class="whatsapp-icon">
+                N8N 🤖 2  
+            </a>
+            <a href="https://chat.whatsapp.com/ITW7cOjknv45kCMYxf8Qj1" class="link-item" target="_blank">
+                <img src="https://pps.whatsapp.net/v/t61.24694-24/487696402_665229229564566_4271525320536613569_n.jpg?ccb=11-4&oh=01_Q5Aa1QHpGehKfc6pSTTH4oQSdvt6dwza1ipPoSZwEvuVz94fGA&oe=680ABEE3&_nc_sid=5e03e0&_nc_cat=111" alt="WhatsApp" class="whatsapp-icon">
+                N8N (LOTADO)
+            </a>
+        </div>
+    </div>
 </body>
 </html> 
