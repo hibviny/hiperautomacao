@@ -6,12 +6,10 @@
     <title>Hiperautomação</title>
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --background-color: #f8fafc;
-            --text-color: #1e293b;
+            --primary-color: #000000;
+            --background-color: #ffffff;
+            --text-color: #000000;
             --card-bg: #ffffff;
-            --hover-color: #3b82f6;
         }
 
         * {
@@ -33,149 +31,115 @@
 
         .banner {
             width: 100%;
-            height: 200px;
+            height: 120px;
             background-image: url('https://yt3.googleusercontent.com/Nj870OEYDE-76ATyvKHHCTHiUljcnggy4MqjG7K8objwzKI46KE0w5cik0f0krDjH4dgHWj3Rg=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj');
             background-size: cover;
             background-position: center;
-            margin-bottom: 1rem;
-            border-radius: 0 0 16px 16px;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 2px solid #000000;
         }
 
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 600px;
             background: var(--card-bg);
             border-radius: 16px;
             padding: 2rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            margin: 0 1rem 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            margin: 2rem 1rem;
             position: relative;
             z-index: 1;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: #000000;
-            text-align: center;
-            margin-bottom: 2.5rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            border-radius: 2px;
+            border: 2px solid #000000;
         }
 
         .link-section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .link-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.25rem;
+            font-weight: 700;
             color: var(--text-color);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .link-item {
             display: flex;
             align-items: center;
-            padding: 1.25rem;
-            margin: 1rem 0;
+            padding: 1rem;
+            margin: 0.75rem 0;
             background: var(--background-color);
             border-radius: 12px;
             text-decoration: none;
             color: var(--text-color);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            border: 2px solid #000000;
             gap: 1rem;
+            font-weight: 500;
         }
 
         .whatsapp-icon, .youtube-icon {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             object-fit: contain;
+            transition: transform 0.2s ease;
         }
 
         .link-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            background: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background: #000000;
             color: white;
         }
 
-        .warning {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #dc2626;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            padding: 0.75rem;
-            background: #fee2e2;
-            border-radius: 8px;
-            border-left: 4px solid #dc2626;
+        .link-item:hover .whatsapp-icon,
+        .link-item:hover .youtube-icon {
+            transform: scale(1.1);
         }
 
         @media (max-width: 768px) {
             .banner {
-                height: 150px;
+                height: 100px;
             }
             
             .container {
                 padding: 1.5rem;
-                margin: -30px 1rem 1rem;
-            }
-
-            h1 {
-                font-size: 1.8rem;
+                margin: 0 1rem 1rem;
             }
 
             .link-title {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 
             .link-item {
-                padding: 1rem;
+                padding: 0.875rem;
                 font-size: 0.9rem;
             }
 
             .whatsapp-icon, .youtube-icon {
-                width: 28px;
-                height: 28px;
+                width: 24px;
+                height: 24px;
             }
         }
 
         @media (max-width: 480px) {
             .banner {
-                height: 120px;
+                height: 80px;
             }
             
             .container {
                 padding: 1.25rem;
-                margin: -20px 1rem 1rem;
-            }
-
-            h1 {
-                font-size: 1.5rem;
-                margin-bottom: 1.5rem;
             }
 
             .link-title {
-                font-size: 1.1rem;
-                margin-bottom: 1rem;
+                font-size: 1rem;
             }
 
             .link-item {
@@ -184,19 +148,19 @@
             }
 
             .whatsapp-icon, .youtube-icon {
-                width: 24px;
-                height: 24px;
+                width: 22px;
+                height: 22px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="banner"></div>
     <div class="container">
+        <div class="banner"></div>
         <div class="link-section">
             <h2 class="link-title">YouTube</h2>
             <a href="https://youtube.com/@hiperautomacao" class="link-item" target="_blank">
-                <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube" class="youtube-icon" style="width: 32px; height: 32px;">
+                <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube" class="youtube-icon">
                 Canal Hiperautomação no YouTube
             </a>
         </div>
