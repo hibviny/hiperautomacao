@@ -27,6 +27,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
         }
 
         .banner {
@@ -152,6 +153,93 @@
                 height: 22px;
             }
         }
+
+        .whatsapp-button {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            border: 2px solid #000000;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-button img {
+            width: 35px;
+            height: 35px;
+            filter: brightness(0) invert(1);
+        }
+
+        .whatsapp-text {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border: 3px solid #000000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-text:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-text img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-text {
+                right: 15px;
+                bottom: 15px;
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+
+            .whatsapp-text img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-text {
+                right: 10px;
+                bottom: 10px;
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+
+            .whatsapp-text img {
+                width: 18px;
+                height: 18px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -197,5 +285,10 @@
             </a>
         </div>
     </div>
+
+    <a href="https://wa.me/5547988936626" class="whatsapp-text" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/512px-WhatsApp.svg.png" alt="WhatsApp">
+        Fale comigo...
+    </a>
 </body>
 </html> 
