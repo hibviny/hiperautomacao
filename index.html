@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Hiperautomação</title>
     <style>
         :root {
@@ -86,7 +86,7 @@
             font-weight: 500;
         }
 
-        .whatsapp-icon, .youtube-icon {
+        .whatsapp-icon, .youtube-icon, .github-icon {
             width: 28px;
             height: 28px;
             object-fit: contain;
@@ -101,7 +101,8 @@
         }
 
         .link-item:hover .whatsapp-icon,
-        .link-item:hover .youtube-icon {
+        .link-item:hover .youtube-icon,
+        .link-item:hover .github-icon {
             transform: scale(1.1);
         }
 
@@ -109,7 +110,7 @@
             .banner {
                 height: 100px;
             }
-            
+
             .container {
                 padding: 1.5rem;
                 margin: 0 1rem 1rem;
@@ -124,7 +125,7 @@
                 font-size: 0.9rem;
             }
 
-            .whatsapp-icon, .youtube-icon {
+            .whatsapp-icon, .youtube-icon, .github-icon {
                 width: 24px;
                 height: 24px;
             }
@@ -134,7 +135,7 @@
             .banner {
                 height: 80px;
             }
-            
+
             .container {
                 padding: 1.25rem;
             }
@@ -148,13 +149,13 @@
                 font-size: 0.85rem;
             }
 
-            .whatsapp-icon, .youtube-icon {
+            .whatsapp-icon, .youtube-icon, .github-icon {
                 width: 22px;
                 height: 22px;
             }
         }
 
-        .whatsapp-button { 
+        .whatsapp-button {
             position: fixed;
             right: 20px;
             bottom: 20px;
@@ -207,7 +208,7 @@
             transform: scale(1.05);
         }
 
-        .whatsapp-text img { /* Este é para o botão flutuante, não para os ícones dos grupos */
+        .whatsapp-text img {
             width: 28px;
             height: 28px;
             filter: brightness(0) invert(1) drop-shadow(0 0 2px #004d00);
@@ -245,77 +246,78 @@
 <body>
     <div class="container">
         <div class="banner"></div>
+
         <div class="link-section">
             <h2 class="link-title">YouTube</h2>
-            <a href="https://youtube.com/@hiperautomacao" class="link-item" target="_blank">
-                <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube" class="youtube-icon">
+            <a href="https://youtube.com/@hiperautomacao" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube" class="youtube-icon" />
                 Canal Hiperautomação no YouTube
             </a>
         </div>
 
         <div class="link-section">
             <h2 class="link-title">Grupos WhatsApp</h2>
-            <a href="https://chat.whatsapp.com/FdEL4y0xabV4qVisMpg3KR" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
-                N8N 🤖 2  
+            <a href="https://chat.whatsapp.com/FdEL4y0xabV4qVisMpg3KR" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
+                N8N 🤖 2
             </a>
-            <a href="https://chat.whatsapp.com/ITW7cOjknv45kCMYxf8Qj1" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
+            <a href="https://chat.whatsapp.com/ITW7cOjknv45kCMYxf8Qj1" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
                 N8N (LOTADO)
             </a>
-            <a href="https://chat.whatsapp.com/KfIZIUW87wz6FrclPbs1S0" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
+            <a href="https://chat.whatsapp.com/KfIZIUW87wz6FrclPbs1S0" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
                 Make
             </a>
-            <a href="https://chat.whatsapp.com/EOqVEr0Wc3xGEI4CG9kfow" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
+            <a href="https://chat.whatsapp.com/EOqVEr0Wc3xGEI4CG9kfow" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
                 _Zapier
             </a>
-            <a href="https://chat.whatsapp.com/JixWsfii4ks9Fqw7bpWxKv" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
+            <a href="https://chat.whatsapp.com/JixWsfii4ks9Fqw7bpWxKv" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
                 Dify
             </a>
-            <a href="https://chat.whatsapp.com/JPDC0UutDssKLjY2b5LPq0" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
+            <a href="https://chat.whatsapp.com/JPDC0UutDssKLjY2b5LPq0" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
                 Inteligência Artificial
             </a>
-            <a href="https://chat.whatsapp.com/L5M00eIrJaM65LkJMY4ogF" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
+            <a href="https://chat.whatsapp.com/L5M00eIrJaM65LkJMY4ogF" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
                 Infraestrutura (VPS,...)
             </a>
-            <a href="https://chat.whatsapp.com/GXn0HIK8WDV39xSZCXM2qo" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
+            <a href="https://chat.whatsapp.com/GXn0HIK8WDV39xSZCXM2qo" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
                 EvolutionAPI
             </a>
-            <a href="https://chat.whatsapp.com/DhSeDX2sjQW3U5T33qdhWu" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
+            <a href="https://chat.whatsapp.com/DhSeDX2sjQW3U5T33qdhWu" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
                 RPA - Robotic Process Automation
             </a>
-            <a href="https://chat.whatsapp.com/JbJPzd6faHb3ziQ01FXmMM" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
+            <a href="https://chat.whatsapp.com/JbJPzd6faHb3ziQ01FXmMM" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
                 Oferta de Vagas, Produtos & Serviços
             </a>
-            <a href="https://chat.whatsapp.com/Hiz0IG7HVjX9or5nzH9KXc" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
+            <a href="https://chat.whatsapp.com/Hiz0IG7HVjX9or5nzH9KXc" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
                 Typebot
             </a>
-            <a href="https://chat.whatsapp.com/J2q8o5UMuvC8VKAZOn9yO7" class="link-item" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" class="whatsapp-icon">
+            <a href="https://chat.whatsapp.com/J2q8o5UMuvC8VKAZOn9yO7" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/768px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon" />
                 Manychat
             </a>
         </div>
 
         <div class="link-section">
             <h2 class="link-title">Workflows Grátis</h2>
-            <a href="https://github.com/hibviny/N8N_workflows" class="link-item" target="_blank">
-                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub" class="youtube-icon"> 
-                Workflows apresentados nos vídeos
+            <a href="exemplos.html" class="link-item" target="_blank" rel="noopener noreferrer">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="github-icon" />
+                Exemplos
             </a>
         </div>
     </div>
 
-    <a href="https://wa.me/5547988936626" class="whatsapp-text" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/512px-WhatsApp.svg.png" alt="WhatsApp"> <!-- Ícone do botão flutuante mantido como estava -->
+    <a href="https://wa.me/5547988936626" class="whatsapp-text" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/512px-WhatsApp.svg.png" alt="WhatsApp" />
         Fale comigo...
     </a>
 </body>

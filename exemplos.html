@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Visualização de Fluxos n8n - hibviny</title>
+  <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.0.0/webcomponents-loader.js"></script>
+  <script src="https://www.unpkg.com/lit@2.0.0-rc.2/polyfill-support.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component/n8n-demo.bundled.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f0f0f0;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 0.2rem;
+    }
+    .github-link {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .github-link a {
+      color: #0366d6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .workflow {
+      margin: 2rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .flow-title {
+      font-weight: bold;
+      margin: 1rem 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Visualização de Fluxos n8n</h1>
+  <div class="github-link">
+    <a href="https://github.com/hibviny/N8N_workflows" target="_blank">
+      🔗 Ver repositório no GitHub: hibviny/N8N_workflows
+    </a>
+  </div>
+
+  <div id="container">Carregando fluxos...</div>
+
+  <script>
+    const container = document.getElementById('container');
+
+    async function fetchJSON(url) {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`Erro ${res.status} ao carregar ${url}`);
+      return await res.json();
+    }
+
+    async function loadWorkflows() {
+      container.innerHTML = '';
+      const rootUrl = 'https://api.github.com/repos/hibviny/N8N_workflows/contents/';
+
+      try {
+        const folders = await fetchJSON(rootUrl);
+
+        for (const folder of folders) {
+          if (folder.type === 'dir') {
+            const files = await fetchJSON(folder.url);
+            const jsonFiles = files.filter(file => file.name.endsWith('.json'));
+
+            if (jsonFiles.length > 0) {
+              const section = document.createElement('div');
+              section.className = 'workflow';
+
+              const title = document.createElement('h2');
+              title.textContent = folder.name;
+              section.appendChild(title);
+
+              for (const jsonFile of jsonFiles) {
+                const raw = await fetch(jsonFile.download_url).then(r => r.text());
+
+                const label = document.createElement('div');
+                label.className = 'flow-title';
+                label.textContent = jsonFile.name;
+                section.appendChild(label);
+
+                const demo = document.createElement('n8n-demo');
+                demo.setAttribute('frame', 'true');
+                demo.setAttribute('workflow', raw);
+                section.appendChild(demo);
+              }
+
+              container.appendChild(section);
+            }
+          }
+        }
+
+        if (container.children.length === 0) {
+          container.innerHTML = '<p>Nenhum fluxo encontrado nas subpastas.</p>';
+        }
+
+      } catch (err) {
+        container.innerHTML = `<p>Erro: ${err.message}</p>`;
+        console.error(err);
+      }
+    }
+
+    loadWorkflows();
+  </script>
+</body>
+</html>
