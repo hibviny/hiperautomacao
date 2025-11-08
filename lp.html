@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introdução ao N8N: Automação Inteligente com IA</title>
+  <style>
+    :root {
+      --primary: #00BCD4; /* Ciano - destaque */
+      --secondary: #004E64; /* Azul petróleo - cor base do canal */
+      --dark: #0A0A0A;
+      --light: #FFFFFF;
+      --gray: #F4F4F4;
+      --accent: #00E5FF;
+      --warning: #FFD740;
+      --ai-dev: #FF7043; /* Laranja suave para destaque IA em desenvolvimento */
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light);
+      color: #222;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ALERTA DE OFERTA */
+    .alerta {
+      background: var(--warning);
+      color: #000;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      border-bottom: 3px solid var(--secondary);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { background-color: var(--warning); }
+      50% { background-color: #FFF59D; }
+    }
+
+    /* CABEÇALHO */
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--secondary);
+      color: var(--light);
+    }
+
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover { transform: scale(1.05); }
+
+    header h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p { color: var(--accent); }
+
+    /* SEÇÕES GERAIS */
+    section {
+      padding: 2rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.6rem;
+      color: var(--secondary);
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: var(--primary);
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    .intro {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    /* CTA */
+    .cta {
+      display: block;
+      width: fit-content;
+      margin: 2rem auto;
+      padding: 1rem 2.2rem;
+      background: var(--primary);
+      color: var(--dark);
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 40px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .cta:hover {
+      background: var(--secondary);
+      color: var(--light);
+      transform: scale(1.05);
+    }
+
+    /* CARDS DE MÓDULOS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--gray);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 5px solid var(--primary);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .card.visible, .intro.visible, .cta.visible, .testimonial.visible { 
+      opacity: 1; transform: translateY(0); 
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    /* AVISO DE MÓDULO IA EM DESENVOLVIMENTO */
+    .ai-alert {
+      display: inline-block;
+      background: var(--ai-dev);
+      color: var(--light);
+      padding: 0.25rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-left: 5px;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* DEPOIMENTOS */
+    .testimonials {
+      background: var(--dark);
+      color: var(--light);
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .testimonial-intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .testimonial {
+      background: #111;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--secondary);
+      font-size: 0.95rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .testimonial::before {
+      content: "“";
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      top: -10px;
+      left: 10px;
+    }
+
+    .testimonial span {
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--secondary);
+      color: var(--light);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.4rem; }
+      header img { width: 110px; height: 110px; }
+      h2 { font-size: 1.3rem; }
+      .alerta { font-size: 0.9rem; }
+      .card p { font-size: 0.95rem; }
+      .cta { font-size: 1rem; padding: 0.9rem 1.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="alerta">
+    ⚡ Oferta limitada: o curso está em desenvolvimento e o preço ainda é promocional!  
+    Garanta agora e receba todas as novas aulas automaticamente.
+  </div>
+
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/C4E03AQEzT5q5yKXIJw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1627516468684?e=1764201600&v=beta&t=Pie4JqSt_EWJanKmc7HknoAVwZV0ADtTWeYpFNIFTpg" alt="Vinícius Reis" />
+    <h1>Introdução ao N8N: Automação Inteligente com IA</h1>
+    <p>Domine o N8N e entre no mundo da automação inteligente com Inteligência Artificial</p>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p>Aprenda a criar automações inteligentes com o N8N, conectando ferramentas, integrando IA e otimizando processos — tudo isso sem precisar programar.  
+      Este curso é o ponto de partida para dominar o futuro da automação.</p>
+    </div>
+
+    <a href="https://go.hotmart.com/T97368496D" target="_blank" class="cta">Aproveitar o preço promocional</a>
+  </section>
+
+  <section>
+    <h2>O que você vai aprender</h2>
+    <div class="cards">
+      <div class="card"><p><strong>Módulo 1 — Introdução ao N8N</strong><br>Compreenda o que é o N8N e o poder da automação inteligente.</p></div>
+      <div class="card"><p><strong>Módulo 2 — Instalação do N8N</strong><br>Aprenda passo a passo como instalar o N8N na sua máquina.</p></div>
+      <div class="card"><p><strong>Módulo 3 — Interface do N8N</strong><br>Explore a interface e entenda como construir fluxos de forma eficiente.</p></div>
+      <div class="card"><p><strong>Módulo 4 — Principais nós e gatilhos</strong><br>Aprenda a usar <em>IF</em>, <em>While</em>, <em>Webhook</em> e gatilhos de tempo.</p></div>
+      <div class="card">
+        <p><strong>Módulo 5 — Inteligência Artificial</strong><br>
+        Crie fluxos com IA e agentes inteligentes automatizados.  
+        <span class="ai-alert">🚧 Em desenvolvimento</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>O que estão dizendo</h2>
+    <p class="testimonial-intro">Comentários reais da playlist do canal <strong>@hiperautomação</strong> no YouTube 👇</p>
+
+    <div class="testimonial-grid">
+      <div class="testimonial">"Melhor que meu curso pago!" <span>— @shi***rena</span></div>
+      <div class="testimonial">"Você equivale ao Gustavo Guanabara pra comunidade do N8N!" <span>— @lea***perf</span></div>
+      <div class="testimonial">"Parabéns, direto ao ponto!" <span>— @ath***nas</span></div>
+      <div class="testimonial">"Excelente conteúdo e exemplo." <span>— @ren***melo</span></div>
+      <div class="testimonial">"Vídeos curtos e práticos!" <span>— @jam***nds</span></div>
+      <div class="testimonial">"Conteúdo incrível, parabéns!" <span>— @tit***112</span></div>
+      <div class="testimonial">"Canal direto e sem enrolação." <span>— @sol***anca</span></div>
+      <div class="testimonial">"Top demais! Continue com IA + N8N!" <span>— @bt***nia</span></div>
+      <div class="testimonial">"Didática excelente!" <span>— @mar***teu</span></div>
+      <div class="testimonial">"Exatamente o que procurava!" <span>— @mat***les</span></div>
+      <div class="testimonial">"Ajudando demais a comunidade!" <span>— @leo***nuba</span></div>
+      <div class="testimonial">"Excelente conteúdo, útil e prático!" <span>— @alb***ger</span></div>
+      <div class="testimonial">"Curto e direto, muito bom!" <span>— @mar***iveira</span></div>
+      <div class="testimonial">"Didática melhor que muitos professores!" <span>— @ano***mous</span></div>
+      <div class="testimonial">"Canal sensacional, parabéns!" <span>— @fab***silva</span></div>
+      <div class="testimonial">"Aprendendo muito com seus vídeos!" <span>— @die***iam</span></div>
+      <div class="testimonial">"Sem enrolação, muito prático!" <span>— @cle***raldo</span></div>
+      <div class="testimonial">"Aulas extraordinárias!" <span>— @pau***silva</span></div>
+      <div class="testimonial">"Conteúdo top, direto ao ponto!" <span>— @dou***unes</span></div>
+      <div class="testimonial">"Excelente explicação e exemplos claros!" <span>— @tha***silva</span></div>
+      <div class="testimonial">"Muito explicativo e relevante." <span>— @vla***raujo</span></div>
+      <div class="testimonial">"Sensacional, direto ao ponto!" <span>— @sil***oliveira</span></div>
+      <div class="testimonial">"Aulas que valem ouro!" <span>— @jam***nds</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sobre Vinícius Reis</h2>
+    <p>Com mais de 20 anos de experiência em tecnologia, Vinícius é especialista em automação de processos e Inteligência Artificial.  
+    Criador do canal <strong>@hiperautomação</strong>, é referência no Brasil em N8N e automação inteligente.  
+    Seu objetivo é democratizar o acesso à automação e mostrar como qualquer pessoa pode aproveitar o poder da IA no dia a dia.</p>
+  </section>
+
+  <a href="https://go.hotmart.com/T97368496D" target="_blank" class="cta">Garantir meu acesso com desconto</a>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Hiperautomação — Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.card, .intro, .cta, .testimonial').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
